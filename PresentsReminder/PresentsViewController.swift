@@ -30,4 +30,9 @@ class PresentsViewController: UIViewController {
         userActivity = activity
         
     }
+    
+    override func updateUserActivityState(_ activity: NSUserActivity) {
+        activity.addUserInfoEntries(from: (present?.userInfoDict)!)
+    }
+    
 }

@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -76,6 +75,7 @@
                                         <connections>
                                             <outlet property="cellImageView" destination="KDH-NI-Dqz" id="jEc-n7-gPv"/>
                                             <outlet property="heading" destination="e7X-uB-s41" id="fl7-Tp-lhK"/>
+                                            <outlet property="lineView" destination="nJf-P7-AlZ" id="Ck9-Fs-aw3"/>
                                             <outlet property="subHeading" destination="Gqu-WB-bX5" id="cuf-0Z-6aW"/>
                                         </connections>
                                     </tableViewCell>
@@ -114,7 +114,7 @@
         <!--Presents View Controller-->
         <scene sceneID="Q2o-5u-GAl">
             <objects>
-                <viewController id="GRG-xM-CWE" customClass="PresentsViewController" customModule="PresentsReminder" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PresentDetailWindowID" id="GRG-xM-CWE" customClass="PresentsViewController" customModule="PresentsReminder" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Ec-NM-0SE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

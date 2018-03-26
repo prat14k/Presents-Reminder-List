@@ -30,6 +30,7 @@ class ViewController: UIViewController {
         
     }
     
+    
     private func loadDataFromDB(){
         
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
@@ -43,7 +44,6 @@ class ViewController: UIViewController {
                 presentsInfo = data
                 self.tableView.reloadData()
             }
-            
         }
         catch {
             print("Unable to fetch \(error.localizedDescription)")
@@ -68,9 +68,6 @@ class ViewController: UIViewController {
             return
         }
         
-        let presentModel = PresentsList(context: managedObjectContext)
-        presentModel.image = UIImageJPEGRepresentation(image, 0.3)!
-        
         let alertController = UIAlertController(title: "New Present", message: "Enter the person's name and the present", preferredStyle: .alert)
         
         alertController.addTextField { (textField) in
@@ -83,12 +80,18 @@ class ViewController: UIViewController {
         let saveAction = UIAlertAction(title: "Save", style: .default) { (action) in
             if let person = alertController.textFields?[0].text , let present = alertController.textFields?[1].text {
                 if person != "" && present != "" {
+                    
+                    let presentModel = PresentsList(context: self.managedObjectContext)
+                    presentModel.image = UIImageJPEGRepresentation(image, 0.3)!
                     presentModel.personName = person
                     presentModel.gift = present
+                    presentModel.uid = NSUUID().uuidString
                     
                     do {
                         try self.managedObjectContext.save()
-                        self.loadDataFromDB()
+                        self.presentsInfo.append(presentModel)
+                        self.tableView.insertRows(at: [IndexPath(row: self.presentsInfo.count - 1, section: 0)], with: .top)
+//                        self.loadDataFromDB()
                     }
                     catch {
                         print(error.localizedDescription)
@@ -170,10 +173,37 @@ extension ViewController : UITableViewDelegate , UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         self.performSegue(withIdentifier: "presentDetailView", sender: indexPath.row)
-        
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let cell = tableView.cellForRow(at: indexPath)
+            cell?.contentView.backgroundColor = UIColor.red
+            
+            let deletedPresent = presentsInfo[indexPath.row]
+            presentsInfo.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            DispatchQueue.global(qos: .background).async {
+                deletedPresent.removeIndexFromSearch()
+                do {
+                    self.managedObjectContext.delete(deletedPresent)
+                    try self.managedObjectContext.save()
+                }
+                catch {
+                    print(error.localizedDescription)
+                }
+            }
+            
+        }
+    }
+    
     
 }
 

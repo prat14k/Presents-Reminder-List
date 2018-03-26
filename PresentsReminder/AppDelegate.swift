@@ -13,12 +13,80 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    lazy var managedObjectContext : NSManagedObjectContext! = {
+        return self.persistentContainer.viewContext
+    }()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        
         return true
     }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        
+        if userActivity.activityType == PresentsList.domainName {
+            
+            if let userInfoDict = userActivity.userInfo as? [String : String] {
+                
+                if let itemUID = userInfoDict["uid"] {
+                    if let presentData = loadSpecificManagedObject(withUID: itemUID) {
+                        
+                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                        if let presentDetailVC = storyboard.instantiateViewController(withIdentifier: "PresentDetailWindowID") as? PresentsViewController {
+                           
+                            presentDetailVC.present = presentData
+                            
+                            if let navBar = window?.rootViewController as? UINavigationController {
+                                navBar.pushViewController(presentDetailVC, animated: true)
+                                
+                                return true
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        }
+        
+        if let navBar = window?.rootViewController as? UINavigationController {
+            if let vc = navBar.topViewController {
+                let alertController = UIAlertController(title: "Item Not found", message: "The item selected in the iOS search was not found.", preferredStyle: .alert)
+                let okayAction = UIAlertAction(title: "Okay", style: .default, handler: { (action) in
+                })
+                alertController.addAction(okayAction)
+                
+                vc.present(alertController, animated: true, completion: nil)
+            }
+        }
+        
+        return false
+    }
+    
+    
+    private func loadSpecificManagedObject(withUID uid : String) -> PresentsList? {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+        fetchRequest.entity = NSEntityDescription.entity(forEntityName: NSStringFromClass(PresentsList.self), in: self.managedObjectContext)
+        
+        fetchRequest.returnsObjectsAsFaults = false
+        
+        fetchRequest.predicate = NSPredicate(format: "uid == %@", uid)
+        
+        do {
+            if let data = try managedObjectContext.fetch(fetchRequest) as? [PresentsList] {
+                return data.first
+            }
+        }
+        catch {
+            print("Unable To Fetch single entry \(error.localizedDescription)")
+        }
+        return nil
+    }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

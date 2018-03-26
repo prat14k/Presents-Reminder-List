@@ -15,10 +15,11 @@ extension PresentsList {
     static let domainName = "prat14k.PresentsSearch"
     
     var userInfoDict : [AnyHashable : Any] {
-        return [ "title" : personName ?? "Name" ]
+        return [ "title" : personName ?? "Name" , "uid" : uid! ]
     }
     
     var userActivity : NSUserActivity {
+//        let identifier = "\(PresentsList.domainName)_\(uid!)"
         let userActivity = NSUserActivity(activityType: PresentsList.domainName)
         userActivity.title = personName
         userActivity.userInfo = userInfoDict
@@ -38,4 +39,17 @@ extension PresentsList {
         
         return attributeSet
     }
+
+    
+    func removeIndexFromSearch() {
+        
+//        let identifier = "\(PresentsList.domainName)_\(uid!)"
+        
+        CSSearchableIndex.default().deleteSearchableItems(withDomainIdentifiers: [PresentsList.domainName]) { (error) in
+            if error != nil {
+                print(error!.localizedDescription)
+            }
+        }
+    }
+    
 }
