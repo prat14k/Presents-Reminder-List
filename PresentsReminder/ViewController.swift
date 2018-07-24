@@ -74,11 +74,17 @@ class ViewController: UIViewController {
             textField.placeholder = "Person"
         }
         alertController.addTextField { (textField) in
-            textField.placeholder = "Present"
+            textField.placeholder = "Gift"
+        }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "When to give the gift"
         }
         
         let saveAction = UIAlertAction(title: "Save", style: .default) { (action) in
-            if let person = alertController.textFields?[0].text , let present = alertController.textFields?[1].text {
+            if let person = alertController.textFields?[0].text ,
+                let present = alertController.textFields?[1].text,
+                let dateToGive = alertController.textFields?[2].text {
+                
                 if person != "" && present != "" {
                     
                     let presentModel = PresentsList(context: self.managedObjectContext)
@@ -86,12 +92,12 @@ class ViewController: UIViewController {
                     presentModel.personName = person
                     presentModel.gift = present
                     presentModel.uid = NSUUID().uuidString
-                    
+                    presentModel.dateToGive = dateToGive.toDate() ?? Date()
                     do {
                         try self.managedObjectContext.save()
+                        presentModel.donatePresentToSiri()
                         self.presentsInfo.append(presentModel)
                         self.tableView.insertRows(at: [IndexPath(row: self.presentsInfo.count - 1, section: 0)], with: .top)
-//                        self.loadDataFromDB()
                     }
                     catch {
                         print(error.localizedDescription)

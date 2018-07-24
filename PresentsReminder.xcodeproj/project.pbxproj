@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB25F5A220EB47DC00E389CE /* PresentIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = AB25F5A120EB47DC00E389CE /* PresentIntents.intentdefinition */; };
+		AB25F5A420EB49FC00E389CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB25F5A320EB49FC00E389CE /* Extensions.swift */; };
+		AB25F5BD20EB577900E389CE /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB25F5BC20EB577900E389CE /* IntentHandler.swift */; };
+		AB25F5C120EB577900E389CE /* PresentIntent.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB25F5BA20EB577900E389CE /* PresentIntent.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		AB25F5C520EB577F00E389CE /* PresentIntents.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = AB25F5A120EB47DC00E389CE /* PresentIntents.intentdefinition */; settings = {ATTRIBUTES = (codegen, ); }; };
+		AB25F5C620EB582300E389CE /* PresentsListsModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB6B83B12066415A002189FC /* PresentsListsModel.xcdatamodeld */; };
+		AB25F5C820EB58B100E389CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB25F5A320EB49FC00E389CE /* Extensions.swift */; };
+		AB4E9C5320ECBB4200C54A9A /* IntentsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4E9C5220ECBB4200C54A9A /* IntentsUI.framework */; };
+		AB4E9C5620ECBB4200C54A9A /* IntentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB4E9C5520ECBB4200C54A9A /* IntentViewController.swift */; };
+		AB4E9C5920ECBB4200C54A9A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB4E9C5720ECBB4200C54A9A /* MainInterface.storyboard */; };
+		AB4E9C5D20ECBB4200C54A9A /* PresentIntentUI.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = AB4E9C5020ECBB4200C54A9A /* PresentIntentUI.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BB3EF3872067766E00A4F384 /* PresentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3EF3862067766E00A4F384 /* PresentsViewController.swift */; };
 		BB6B839E20663CF5002189FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6B839D20663CF5002189FC /* AppDelegate.swift */; };
 		BB6B83A020663CF5002189FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6B839F20663CF5002189FC /* ViewController.swift */; };
@@ -18,7 +29,49 @@
 		BBE8161A206689C6003107DD /* PresentsSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE81619206689C6003107DD /* PresentsSearch.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AB25F5BF20EB577900E389CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB6B839220663CF5002189FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB25F5B920EB577900E389CE;
+			remoteInfo = PresentIntent;
+		};
+		AB4E9C5B20ECBB4200C54A9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB6B839220663CF5002189FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB4E9C4F20ECBB4200C54A9A;
+			remoteInfo = PresentIntentUI;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AB25F5B420EB55C500E389CE /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AB4E9C5D20ECBB4200C54A9A /* PresentIntentUI.appex in Embed App Extensions */,
+				AB25F5C120EB577900E389CE /* PresentIntent.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		AB25F5A120EB47DC00E389CE /* PresentIntents.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = PresentIntents.intentdefinition; sourceTree = "<group>"; };
+		AB25F5A320EB49FC00E389CE /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		AB25F5BA20EB577900E389CE /* PresentIntent.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PresentIntent.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB25F5BC20EB577900E389CE /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		AB25F5BE20EB577900E389CE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AB4E9C5020ECBB4200C54A9A /* PresentIntentUI.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = PresentIntentUI.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB4E9C5220ECBB4200C54A9A /* IntentsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IntentsUI.framework; path = System/Library/Frameworks/IntentsUI.framework; sourceTree = SDKROOT; };
+		AB4E9C5520ECBB4200C54A9A /* IntentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentViewController.swift; sourceTree = "<group>"; };
+		AB4E9C5820ECBB4200C54A9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		AB4E9C5A20ECBB4200C54A9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB3EF3862067766E00A4F384 /* PresentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentsViewController.swift; sourceTree = "<group>"; };
 		BB6B839A20663CF5002189FC /* PresentsReminder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PresentsReminder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6B839D20663CF5002189FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +86,21 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AB25F5B720EB577900E389CE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB4E9C4D20ECBB4200C54A9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB4E9C5320ECBB4200C54A9A /* IntentsUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BB6B839720663CF5002189FC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -43,10 +111,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB25F5BB20EB577900E389CE /* PresentIntent */ = {
+			isa = PBXGroup;
+			children = (
+				AB25F5BC20EB577900E389CE /* IntentHandler.swift */,
+				AB25F5BE20EB577900E389CE /* Info.plist */,
+			);
+			path = PresentIntent;
+			sourceTree = "<group>";
+		};
+		AB4E9C5120ECBB4200C54A9A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB4E9C5220ECBB4200C54A9A /* IntentsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB4E9C5420ECBB4200C54A9A /* PresentIntentUI */ = {
+			isa = PBXGroup;
+			children = (
+				AB4E9C5520ECBB4200C54A9A /* IntentViewController.swift */,
+				AB4E9C5720ECBB4200C54A9A /* MainInterface.storyboard */,
+				AB4E9C5A20ECBB4200C54A9A /* Info.plist */,
+			);
+			path = PresentIntentUI;
+			sourceTree = "<group>";
+		};
 		BB6B839120663CF5002189FC = {
 			isa = PBXGroup;
 			children = (
 				BB6B839C20663CF5002189FC /* PresentsReminder */,
+				AB25F5BB20EB577900E389CE /* PresentIntent */,
+				AB4E9C5420ECBB4200C54A9A /* PresentIntentUI */,
+				AB4E9C5120ECBB4200C54A9A /* Frameworks */,
 				BB6B839B20663CF5002189FC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				BB6B839A20663CF5002189FC /* PresentsReminder.app */,
+				AB25F5BA20EB577900E389CE /* PresentIntent.appex */,
+				AB4E9C5020ECBB4200C54A9A /* PresentIntentUI.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,6 +162,7 @@
 		BB6B839C20663CF5002189FC /* PresentsReminder */ = {
 			isa = PBXGroup;
 			children = (
+				AB25F5A120EB47DC00E389CE /* PresentIntents.intentdefinition */,
 				BB6B839D20663CF5002189FC /* AppDelegate.swift */,
 				BB6B83B12066415A002189FC /* PresentsListsModel.xcdatamodeld */,
 				BB6B839F20663CF5002189FC /* ViewController.swift */,
@@ -72,6 +173,7 @@
 				BB6B83AF20663FFA002189FC /* TableViewCell.swift */,
 				BBE81619206689C6003107DD /* PresentsSearch.swift */,
 				BB3EF3862067766E00A4F384 /* PresentsViewController.swift */,
+				AB25F5A320EB49FC00E389CE /* Extensions.swift */,
 			);
 			path = PresentsReminder;
 			sourceTree = "<group>";
@@ -79,6 +181,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AB25F5B920EB577900E389CE /* PresentIntent */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB25F5C220EB577900E389CE /* Build configuration list for PBXNativeTarget "PresentIntent" */;
+			buildPhases = (
+				AB25F5B620EB577900E389CE /* Sources */,
+				AB25F5B720EB577900E389CE /* Frameworks */,
+				AB25F5B820EB577900E389CE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PresentIntent;
+			productName = PresentIntent;
+			productReference = AB25F5BA20EB577900E389CE /* PresentIntent.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		AB4E9C4F20ECBB4200C54A9A /* PresentIntentUI */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AB4E9C5E20ECBB4200C54A9A /* Build configuration list for PBXNativeTarget "PresentIntentUI" */;
+			buildPhases = (
+				AB4E9C4C20ECBB4200C54A9A /* Sources */,
+				AB4E9C4D20ECBB4200C54A9A /* Frameworks */,
+				AB4E9C4E20ECBB4200C54A9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PresentIntentUI;
+			productName = PresentIntentUI;
+			productReference = AB4E9C5020ECBB4200C54A9A /* PresentIntentUI.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		BB6B839920663CF5002189FC /* PresentsReminder */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB6B83AC20663CF5002189FC /* Build configuration list for PBXNativeTarget "PresentsReminder" */;
@@ -86,10 +222,13 @@
 				BB6B839620663CF5002189FC /* Sources */,
 				BB6B839720663CF5002189FC /* Frameworks */,
 				BB6B839820663CF5002189FC /* Resources */,
+				AB25F5B420EB55C500E389CE /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AB25F5C020EB577900E389CE /* PBXTargetDependency */,
+				AB4E9C5C20ECBB4200C54A9A /* PBXTargetDependency */,
 			);
 			name = PresentsReminder;
 			productName = PresentsReminder;
@@ -102,10 +241,18 @@
 		BB6B839220663CF5002189FC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Prateek Sharma";
 				TargetAttributes = {
+					AB25F5B920EB577900E389CE = {
+						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
+					};
+					AB4E9C4F20ECBB4200C54A9A = {
+						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Automatic;
+					};
 					BB6B839920663CF5002189FC = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -126,11 +273,28 @@
 			projectRoot = "";
 			targets = (
 				BB6B839920663CF5002189FC /* PresentsReminder */,
+				AB25F5B920EB577900E389CE /* PresentIntent */,
+				AB4E9C4F20ECBB4200C54A9A /* PresentIntentUI */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AB25F5B820EB577900E389CE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB4E9C4E20ECBB4200C54A9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB4E9C5920ECBB4200C54A9A /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BB6B839820663CF5002189FC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -144,12 +308,33 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AB25F5B620EB577900E389CE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB25F5C820EB58B100E389CE /* Extensions.swift in Sources */,
+				AB25F5C620EB582300E389CE /* PresentsListsModel.xcdatamodeld in Sources */,
+				AB25F5C520EB577F00E389CE /* PresentIntents.intentdefinition in Sources */,
+				AB25F5BD20EB577900E389CE /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB4E9C4C20ECBB4200C54A9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AB4E9C5620ECBB4200C54A9A /* IntentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BB6B839620663CF5002189FC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BBE8161A206689C6003107DD /* PresentsSearch.swift in Sources */,
+				AB25F5A220EB47DC00E389CE /* PresentIntents.intentdefinition in Sources */,
 				BB6B83B020663FFB002189FC /* TableViewCell.swift in Sources */,
+				AB25F5A420EB49FC00E389CE /* Extensions.swift in Sources */,
 				BB6B83A020663CF5002189FC /* ViewController.swift in Sources */,
 				BB6B839E20663CF5002189FC /* AppDelegate.swift in Sources */,
 				BB3EF3872067766E00A4F384 /* PresentsViewController.swift in Sources */,
@@ -159,7 +344,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		AB25F5C020EB577900E389CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB25F5B920EB577900E389CE /* PresentIntent */;
+			targetProxy = AB25F5BF20EB577900E389CE /* PBXContainerItemProxy */;
+		};
+		AB4E9C5C20ECBB4200C54A9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AB4E9C4F20ECBB4200C54A9A /* PresentIntentUI */;
+			targetProxy = AB4E9C5B20ECBB4200C54A9A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		AB4E9C5720ECBB4200C54A9A /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AB4E9C5820ECBB4200C54A9A /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		BB6B83A120663CF5002189FC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -179,6 +385,84 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AB25F5C320EB577900E389CE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = PresentIntent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = prat14k.PresentsReminder.PresentIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB25F5C420EB577900E389CE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = PresentIntent/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = prat14k.PresentsReminder.PresentIntent;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		AB4E9C5F20ECBB4200C54A9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = PresentIntentUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				PRODUCT_BUNDLE_IDENTIFIER = prat14k.PresentsReminder.PresentIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		AB4E9C6020ECBB4200C54A9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = PresentIntentUI/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = prat14k.PresentsReminder.PresentIntentUI;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		BB6B83AA20663CF5002189FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -289,11 +573,12 @@
 		BB6B83AD20663CF5002189FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FH6F3G6EQZ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PresentsReminder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = prat14k.PresentsReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -305,11 +590,12 @@
 		BB6B83AE20663CF5002189FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FH6F3G6EQZ;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = PresentsReminder/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = prat14k.PresentsReminder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -321,6 +607,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AB25F5C220EB577900E389CE /* Build configuration list for PBXNativeTarget "PresentIntent" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB25F5C320EB577900E389CE /* Debug */,
+				AB25F5C420EB577900E389CE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		AB4E9C5E20ECBB4200C54A9A /* Build configuration list for PBXNativeTarget "PresentIntentUI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AB4E9C5F20ECBB4200C54A9A /* Debug */,
+				AB4E9C6020ECBB4200C54A9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BB6B839520663CF5002189FC /* Build configuration list for PBXProject "PresentsReminder" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

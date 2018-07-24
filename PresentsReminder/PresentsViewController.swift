@@ -14,6 +14,7 @@ class PresentsViewController: UIViewController {
     
     @IBOutlet weak var personName: UILabel!
     @IBOutlet weak var giftName: UILabel!
+    @IBOutlet weak var dateToGiveGiftLabel: UILabel!
     
     var present : PresentsList?
     
@@ -22,13 +23,15 @@ class PresentsViewController: UIViewController {
         
         personName.text = present?.personName
         giftName.text = present?.gift
+        dateToGiveGiftLabel.text = present?.dateToGive?.toString()
         imageView.image = UIImage(data: (present?.image!)!)
         
         let activity = present?.userActivity
         activity?.isEligibleForSearch = true
         activity?.contentAttributeSet?.relatedUniqueIdentifier = nil
-        userActivity = activity
+        activity?.isEligibleForPrediction = true
         
+        userActivity = activity
     }
     
     override func updateUserActivityState(_ activity: NSUserActivity) {

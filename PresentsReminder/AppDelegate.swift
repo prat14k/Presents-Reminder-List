@@ -28,28 +28,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
         
+        var presentData: PresentsList?
         if userActivity.activityType == PresentsList.domainName {
-            
-            if let userInfoDict = userActivity.userInfo as? [String : String] {
-                
-                if let itemUID = userInfoDict["uid"] {
-                    if let presentData = loadSpecificManagedObject(withUID: itemUID) {
-                        
-                        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                        if let presentDetailVC = storyboard.instantiateViewController(withIdentifier: "PresentDetailWindowID") as? PresentsViewController {
-                           
-                            presentDetailVC.present = presentData
-                            
-                            if let navBar = window?.rootViewController as? UINavigationController {
-                                navBar.pushViewController(presentDetailVC, animated: true)
-                                
-                                return true
-                            }
-                        }
-                        
-                    }
+            if let userInfoDict = userActivity.userInfo as? [String : Any] {
+                if let itemUID = userInfoDict["uid"] as? String {
+                    presentData = PresentsList.loadSpecificManagedObject(withUID: itemUID)
                 }
             }
+        } else if userActivity.activityType == "PresentReminderIntent" {
+            if let intent = userActivity.interaction?.intent as? PresentReminderIntent {
+                presentData = PresentsList.present(from: intent)
+            }
+        }
+        
+        if let present = presentData {
+            presentPresentView(for: present)
+            return true
         }
         
         if let navBar = window?.rootViewController as? UINavigationController {
@@ -66,25 +60,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     
-    
-    private func loadSpecificManagedObject(withUID uid : String) -> PresentsList? {
-        
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
-        fetchRequest.entity = NSEntityDescription.entity(forEntityName: NSStringFromClass(PresentsList.self), in: self.managedObjectContext)
-        
-        fetchRequest.returnsObjectsAsFaults = false
-        
-        fetchRequest.predicate = NSPredicate(format: "uid == %@", uid)
-        
-        do {
-            if let data = try managedObjectContext.fetch(fetchRequest) as? [PresentsList] {
-                return data.first
+    func presentPresentView(for present: PresentsList) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let presentDetailVC = storyboard.instantiateViewController(withIdentifier: "PresentDetailWindowID") as? PresentsViewController {
+            
+            presentDetailVC.present = present
+            
+            if let navBar = window?.rootViewController as? UINavigationController {
+                navBar.pushViewController(presentDetailVC, animated: true)
             }
         }
-        catch {
-            print("Unable To Fetch single entry \(error.localizedDescription)")
-        }
-        return nil
     }
     
 
